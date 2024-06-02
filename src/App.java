@@ -1,7 +1,9 @@
-import grammar.*;
-import org.antlr.v4.runtime.*;
+import grammar.PythonLexer;
+import grammar.PythonParser;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import refactor.RefactorVisitor;
 
 import java.io.FileNotFoundException;
@@ -17,11 +19,10 @@ public class App {
             throw new RuntimeException(e);
         }
         PythonLexer lexer = new PythonLexer(inp);
-        CommonTokenStream tokens = new CommonTokenStream((TokenSource) lexer);
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
         PythonParser parser = new PythonParser(tokens);
         ParseTree tree = parser.file_input();
 
-        ParseTreeWalker walker = new ParseTreeWalker();
         RefactorVisitor visitor = new RefactorVisitor(inp, tokens);
         visitor.visit(tree);
 

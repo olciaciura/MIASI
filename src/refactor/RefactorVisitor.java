@@ -1,7 +1,11 @@
 package refactor;
 
-import grammar.*;
-import org.antlr.v4.runtime.*;
+import grammar.PythonParser;
+import grammar.PythonParserBaseVisitor;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.TokenStreamRewriter;
 import org.antlr.v4.runtime.misc.Interval;
 
 public class RefactorVisitor extends PythonParserBaseVisitor<String> {
