@@ -6,7 +6,7 @@ def subtract(x, y):
     """Function to subtract two numbers"""
     return x - y
 
-def multiply(x, y):
+def MultiplyTwoNumbers(x, y):
     """Function to multiply two numbers"""
     return x * y
 
@@ -29,7 +29,7 @@ while True:
         elif choice == '2':
             print("Result:", subtract(num1, num2))
         elif choice == '3':
-            print("Result:", multiply(num1, num2))
+            print("Result:", MultiplyTwoNumbers(num1, num2))
         elif choice == '4':
             print("Result:", divide(num1, num2))
     else:
